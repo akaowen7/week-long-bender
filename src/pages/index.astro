@@ -1,16 +1,38 @@
 ---
-
+import Fonts from "../components/Fonts.astro";
 ---
 
+<style>
+  body {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .oswald {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+</style>
+
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <Fonts />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <div>
+      <h1
+        class="text-4xl sm:text-6xl m-5 sm:m-10 text-center font-meidum underline"
+      >
+        MAX, CAMERON, AND THEA WILL TAKE PART IN A WEEK LONG BENDER
+      </h1>
+    </div>
+  </body>
 </html>
