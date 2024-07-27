@@ -52,11 +52,13 @@ import Fonts from "../components/Fonts.astro";
 </style>
 
 <script>
-  var countDownDate = new Date("Aug 2, 2024 21:00:00").getTime();
+  var countDownDate = new Date("Aug 2, 2024 22:00:00").getTime();
+  var endDate = new Date("Aug 9, 2024 21:59:59").getTime();
 
   const coundownFunc = () => {
     var now = new Date().getTime();
     var distance = countDownDate - now;
+    var endDistance = endDate - now;
 
     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
     var hours = Math.floor(
@@ -82,7 +84,11 @@ import Fonts from "../components/Fonts.astro";
       seconds +
       " SECONDS";
 
-    if (distance < 0) {
+    if (endDistance < 0) {
+      clearInterval(x);
+      title.innerHTML =
+        "MAX, CAMERON, AND THEA HAVE COMPLETED A WEEK LONG BENDER";
+    } else if (distance < 0) {
       clearInterval(x);
       title.innerHTML = "MAX, CAMERON, AND THEA ARE DOING A WEEK LONG BENDER";
     }
