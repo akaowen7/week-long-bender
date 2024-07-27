@@ -8,12 +8,37 @@ import Fonts from "../components/Fonts.astro";
     font-optical-sizing: auto;
     font-style: normal;
     font-weight: 400;
+    color: white;
+  }
+
+  b {
+    font-weight: 500;
   }
 
   .oswald {
     font-family: "Oswald", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
+  }
+
+  .calender > * {
+    @apply border-gray-50 bg-zinc-700 border-x-2 border-b-2 flex-1 p-3;
+
+    @media (min-width: 768px) {
+      @apply border-gray-50 bg-zinc-700 border-y-2 border-r-2 border-l-0 flex-1 p-3;
+    }
+  }
+
+  .calender h3 {
+    @apply text-2xl ml-3;
+  }
+
+  .calender p {
+    @apply text-xl;
+
+    @media (min-width: 768px) {
+      @apply text-lg;
+    }
   }
 </style>
 
@@ -26,13 +51,49 @@ import Fonts from "../components/Fonts.astro";
     <meta name="generator" content={Astro.generator} />
     <title>Astro</title>
   </head>
-  <body>
+  <body class="bg-slate-900 flex flex-col">
     <div>
       <h1
-        class="text-4xl sm:text-6xl m-5 sm:m-10 text-center font-meidum underline"
+        class="text-4xl sm:text-6xl m-5 mt-10 sm:m-10 text-center font-meidum underline"
       >
-        MAX, CAMERON, AND THEA WILL TAKE PART IN A WEEK LONG BENDER
+        MAX, CAMERON, AND THEA WILL TAKE PART IN A WEEK LONG BENDER FROM AUG 2ND
+        - AUG 9th
       </h1>
+    </div>
+    <h3 class="text-3xl mx-auto mb-2">THE PLAN (still WIP)</h3>
+    <div class="flex flex-col md:flex-row p-3 calender">
+      <div class="border-t-2 md:border-l-2">
+        <h3>Aug 2nd</h3>
+        <p><b>Opening Ceremony</b> - 9pm @ Thea's</p>
+      </div>
+      <div>
+        <h3>Aug 3rd</h3>
+      </div>
+      <div>
+        <h3>Aug 4th</h3>
+      </div>
+      <div>
+        <h3>Aug 5th</h3>
+      </div>
+      <div>
+        <h3>Aug 6th</h3>
+      </div>
+      <div>
+        <h3>Aug 7th (Thea's birthday!)</h3>
+        <p>
+          <b>All you can eat ribs</b> - 4pm @ Montanas (1750 Ogilvie Rd)
+        </p>
+        <p>
+          <b>Theas birthday???</b> - Post Montanas @ Thea's
+        </p>
+      </div>
+      <div>
+        <h3>Aug 8th</h3>
+      </div>
+      <div>
+        <h3>Aug 9th</h3>
+        <p><b>Closing Ceremony and Awards</b> - 9pm @ Thea's</p>
+      </div>
     </div>
   </body>
 </html>
