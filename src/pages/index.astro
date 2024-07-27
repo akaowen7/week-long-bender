@@ -55,6 +55,13 @@ import Fonts from "../components/Fonts.astro";
     background-size: contain;
     background-repeat: no-repeat;
   }
+
+  .spray {
+    background-image: url("/Splot.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 </style>
 
 <script>
@@ -102,7 +109,10 @@ import Fonts from "../components/Fonts.astro";
 
   coundownFunc();
 
-  var x = setInterval(coundownFunc, 1000);
+  // clam down, worse things happen on modren systems
+  // done like this to stop issues of the interval being offset
+  // from the actual time
+  var x = setInterval(coundownFunc, 250);
 </script>
 
 <html lang="en">
@@ -115,7 +125,7 @@ import Fonts from "../components/Fonts.astro";
     <title>WEEK LONG BENDER</title>
   </head>
   <body class="bg-stone-900 flex flex-col">
-    <div>
+    <div class="spray">
       <h1
         id="title"
         class="text-4xl sm:text-6xl m-5 mt-10 sm:m-10 text-center font-meidum underline"
