@@ -31,30 +31,10 @@ import Fonts from "../components/Fonts.astro";
   }
 
   .calender > * {
-    @apply border-gray-50 bg-zinc-700 border-2 flex-1 p-3 m-1 rounded-lg shadow-md shadow-slate-300;
+    @apply bg-zinc-700 border-2 flex-1 p-3 m-1 rounded-lg;
 
     @media (min-width: 768px) {
-      @apply border-gray-50 bg-zinc-700 border-2 flex-[1_0_21%] p-3 m-1;
-    }
-  }
-
-  .calenderHighlight {
-    @apply border-gray-50 bg-red-700 border-2 flex-1 p-3 m-1 rounded-lg shadow-md shadow-slate-300;
-
-    @media (min-width: 768px) {
-      @apply border-gray-50 bg-red-700 border-2 flex-[1_0_21%] p-3 m-1;
-    }
-  }
-
-  .calenderHighlight h3 {
-    @apply text-2xl ml-3;
-  }
-
-  .calenderHighlight p {
-    @apply text-xl;
-
-    @media (min-width: 768px) {
-      @apply text-lg;
+      @apply bg-zinc-700 border-2 flex-[1_0_21%] p-3 m-1;
     }
   }
 
@@ -90,6 +70,7 @@ import Fonts from "../components/Fonts.astro";
 
   const coundownFunc = () => {
     var now = new Date().getTime();
+    const date = new Date().getDate();
     var distance = countDownDate - now;
     var endDistance = endDate - now;
 
@@ -125,31 +106,11 @@ import Fonts from "../components/Fonts.astro";
       clearInterval(x);
       title.innerHTML = "CAMERON, MAX, AND THEA ARE DOING A WEEK LONG BENDER";
     }
-      switch (days) {
-        case 0:
-          document.getElementById('2nd').className = 'calenderHighlight';
-          break;
-        case -1:
-          document.getElementById('3rd').className = 'calenderHighlight';
-          break;
-        case -2:
-          document.getElementById('4th').className = 'calenderHighlight';
-          break;
-        case -3:
-          document.getElementById('5th').className = 'calenderHighlight';
-          break;
-        case -4:
-          document.getElementById('6th').className = 'calenderHighlight';
-          break;
-        case -5: 
-          document.getElementById('7th').className = 'calenderHighlight';
-          break;
-        case -6:
-          document.getElementById('8th').className = 'calenderHighlight';
-          break;
-        case -7:
-          document.getElementById('9th').className = 'calenderHighlight';
-          break;
+
+    let currentCal = document.getElementById(date.toString());
+
+    if (currentCal) {
+      currentCal.className = "border-red-600 shadow-red-400 shadow-md";
     }
   };
 
@@ -183,11 +144,11 @@ import Fonts from "../components/Fonts.astro";
       <h3 class="text-3xl py-3">THE PLAN (still WIP)</h3>
     </div>
     <div class="flex flex-col flex-wrap md:flex-row p-3 calender">
-      <div class="border-t-2" id="2nd">
+      <div class="shadow-slate-300 shadow-md" id="2">
         <h3>Fri - Aug 2nd</h3>
         <p><b>Opening Ceremony</b> - 9pm @ Thea's</p>
       </div>
-      <div id="3rd">
+      <div class="shadow-slate-300 shadow-md" id="3">
         <h3>Sat - Aug 3rd</h3>
         <p>
           <b>Golfing</b> - 3pm @ <a href="https://www.pineview.com/en"
@@ -195,16 +156,16 @@ import Fonts from "../components/Fonts.astro";
           >
         </p>
       </div>
-      <div id="4th">
+      <div class="shadow-slate-300 shadow-md" id="4">
         <h3>Sun - Aug 4th</h3>
       </div>
-      <div id="5th">
+      <div class="shadow-slate-300 shadow-md" id="5">
         <h3>Mon - Aug 5th</h3>
         <p>
           <b>Deadpool & Wolverine</b> - 3:40pm @ Scotiabank Theatre
         </p>
       </div>
-      <div id="6th">
+      <div class="shadow-slate-300 shadow-md" id="6">
         <h3>Tues - Aug 6th</h3>
         <p>
           <b>Go Karting</b> - 2pm @ <a href="https://www.topkarting.com/"
@@ -212,7 +173,7 @@ import Fonts from "../components/Fonts.astro";
           >
         </p>
       </div>
-      <div id="7th">
+      <div class="shadow-slate-300 shadow-md" id="7">
         <h3>Wed - Aug 7th (Thea's birthday!)</h3>
         <p>
           <b>All you can eat ribs</b> - 4pm @ Montanas (1750 Ogilvie Rd)
@@ -221,13 +182,13 @@ import Fonts from "../components/Fonts.astro";
           <b>Theas birthday???</b> - Post Montanas @ Thea's
         </p>
       </div>
-      <div id="8th">
+      <div class="shadow-slate-300 shadow-md" id="8">
         <h3>Thur - Aug 8th</h3>
         <p>
           <b>Pub Crawl</b> - 6pm (map to come)
         </p>
       </div>
-      <div id="9th">
+      <div class="shadow-slate-300 shadow-md" id="9">
         <h3>Fri - Aug 9th</h3>
         <p><b>Closing Ceremony and Awards</b> - 9pm @ Thea's</p>
       </div>
