@@ -51,6 +51,48 @@ import Fonts from "../components/Fonts.astro";
   }
 </style>
 
+<script>
+  var countDownDate = new Date("Aug 2, 2024 21:00:00").getTime();
+
+  const coundownFunc = () => {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    const title = document.getElementById("title");
+
+    if (!title) {
+      return;
+    }
+
+    title.innerHTML =
+      "MAX, CAMERON, AND THEA WILL TAKE PART IN A WEEK LONG BENDER IN " +
+      days +
+      " DAYS, " +
+      hours +
+      " HOURS, " +
+      minutes +
+      " MINUTES, AND " +
+      seconds +
+      " SECONDS";
+
+    if (distance < 0) {
+      clearInterval(x);
+      title.innerHTML = "MAX, CAMERON, AND THEA ARE DOING A WEEK LONG BENDER";
+    }
+  };
+
+  coundownFunc();
+
+  var x = setInterval(coundownFunc, 1000);
+</script>
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -63,10 +105,10 @@ import Fonts from "../components/Fonts.astro";
   <body class="bg-slate-900 flex flex-col">
     <div>
       <h1
+        id="title"
         class="text-4xl sm:text-6xl m-5 mt-10 sm:m-10 text-center font-meidum underline"
       >
-        MAX, CAMERON, AND THEA WILL TAKE PART IN A WEEK LONG BENDER FROM AUG 2ND
-        - AUG 9th
+        MAX, CAMERON, AND THEA WILL TAKE PART IN A WEEK LONG BENDER
       </h1>
     </div>
     <h3 class="text-3xl mx-auto mb-2">THE PLAN (still WIP)</h3>
