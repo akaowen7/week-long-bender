@@ -31,10 +31,10 @@ import Fonts from "../components/Fonts.astro";
   }
 
   .calender > * {
-    @apply bg-zinc-700 border-2 flex-1 p-3 m-1 rounded-lg;
+    @apply bg-gray-700 border-2 flex-1 p-3 m-1 rounded-lg;
 
     @media (min-width: 768px) {
-      @apply bg-zinc-700 border-2 flex-[1_0_21%] p-3 m-1;
+      @apply bg-gray-700 border-2 flex-[1_0_21%] p-3 m-1;
     }
   }
 
@@ -65,21 +65,21 @@ import Fonts from "../components/Fonts.astro";
 </style>
 
 <script>
-  var countDownDate = new Date("Aug 2, 2024 22:00:00").getTime();
-  var endDate = new Date("Aug 9, 2024 21:59:59").getTime();
+  const benderStart = new Date("Aug 2, 2024 22:00:00").getTime();
+  const benderEnd = new Date("Aug 9, 2024 21:59:59").getTime();
 
   const coundownFunc = () => {
-    var now = new Date().getTime();
+    const time = new Date().getTime();
     const date = new Date().getDate();
-    var distance = countDownDate - now;
-    var endDistance = endDate - now;
+    const distance = benderStart - time;
+    const endDistance = benderEnd - time;
 
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor(
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
       (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
     );
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     const title = document.getElementById("title");
 
@@ -104,13 +104,14 @@ import Fonts from "../components/Fonts.astro";
         "CAMERON, MAX, AND THEA HAVE COMPLETED A WEEK LONG BENDER";
     } else if (distance < 0) {
       clearInterval(x);
-      title.innerHTML = "CAMERON, MAX, AND THEA ARE DOING A WEEK LONG BENDER";
+      title.innerHTML =
+        "CAMERON, MAX, AND THEA ARE DOING A WEEK LONG BENDER RIGHT NOW";
     }
 
     let currentCal = document.getElementById(date.toString());
 
     if (currentCal) {
-      currentCal.className = "border-red-600 shadow-red-400 shadow-md";
+      currentCal.className = "border-red-700 shadow-red-600 shadow-xl";
     }
   };
 
@@ -119,7 +120,7 @@ import Fonts from "../components/Fonts.astro";
   // clam down, worse things happen on modren systems
   // done like this to stop issues of the interval being offset
   // from the actual time
-  var x = setInterval(coundownFunc, 250);
+  var x = setInterval(coundownFunc, 100);
 </script>
 
 <html lang="en">
@@ -144,7 +145,7 @@ import Fonts from "../components/Fonts.astro";
       <h3 class="text-3xl py-3">THE PLAN (still WIP)</h3>
     </div>
     <div class="flex flex-col flex-wrap md:flex-row p-3 calender">
-      <div class="shadow-slate-300 shadow-md" id="2">
+      <div class="shadow-slate-300 shadow-md" id="30">
         <h3>Fri - Aug 2nd</h3>
         <p><b>Opening Ceremony</b> - 8:30pm @ Thea's</p>
       </div>
