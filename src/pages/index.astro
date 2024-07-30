@@ -71,15 +71,17 @@ import Fonts from "../components/Fonts.astro";
   const coundownFunc = () => {
     const time = new Date().getTime();
     const date = new Date().getDate();
-    const distance = benderStart - time;
+    const startDistance = benderStart - time;
     const endDistance = benderEnd - time;
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const days = Math.floor(startDistance / (1000 * 60 * 60 * 24));
     const hours = Math.floor(
-      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      (startDistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
     );
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    const minutes = Math.floor(
+      (startDistance % (1000 * 60 * 60)) / (1000 * 60)
+    );
+    const seconds = Math.floor((startDistance % (1000 * 60)) / 1000);
 
     const title = document.getElementById("title");
 
@@ -87,25 +89,25 @@ import Fonts from "../components/Fonts.astro";
       return;
     }
 
+    // I am nothing if not someone who cares for formatting
     title.innerHTML =
       "CAMERON, MAX, AND THEA WILL TAKE PART IN A WEEK LONG BENDER IN " +
-      days +
-      " DAYS, " +
-      hours +
-      " HOURS, " +
-      minutes +
-      " MINUTES, AND " +
-      seconds +
-      " SECONDS";
+      (days ? `${days} DAY${days > 1 ? "S" : ""}, ` : "") +
+      (hours ? `${hours} HOUR${hours > 1 ? "S" : ""}, ` : "") +
+      (minutes ? `${minutes} MINUTE${minutes > 1 ? "S" : ""}, ` : "") +
+      (minutes || hours || days ? "AND " : "") +
+      `${seconds} SECONDS`;
 
-    if (endDistance < 0) {
-      clearInterval(x);
-      title.innerHTML =
-        "CAMERON, MAX, AND THEA HAVE COMPLETED A WEEK LONG BENDER";
-    } else if (distance < 0) {
+    // in ms, makes the countdown go from 1 to "bender has started",
+    // skipping the 0 second mark
+    if (startDistance < 1000) {
       clearInterval(x);
       title.innerHTML =
         "CAMERON, MAX, AND THEA ARE DOING A WEEK LONG BENDER RIGHT NOW";
+    } else if (endDistance < 0) {
+      clearInterval(x);
+      title.innerHTML =
+        "CAMERON, MAX, AND THEA HAVE COMPLETED A WEEK LONG BENDER";
     }
 
     let currentCal = document.getElementById(date.toString());
