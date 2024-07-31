@@ -162,20 +162,27 @@ import Default from "../layouts/Default.astro";
       <div class="shadow-slate-300 shadow-md" id="6">
         <h3>Tuesday - Aug 6th</h3>
         <p>
-          <span class="text-red-300">*</span><s>Drunk Driving</s>
-          <b> Go Karting</b> - 2pm @ <a href="https://www.topkarting.com/"
-            >Top Karting</a
+          <InfoButton
+            onClick="document.getElementById('exp2').classList.toggle('hidden')"
           >
+            <span class="text-red-300">*</span><s>Drunk Driving</s>
+            <b> Go Karting</b>
+          </InfoButton>
+          - 2pm @ <a href="https://www.topkarting.com/">Top Karting</a>
+        </p>
+        <p id="exp2" class="border-l-4 pl-3 mt-2 mb-2 hidden">
+          Go karting is going to be about 60-70$ per person, unless we get like
+          more then 12 people, which we won't.
         </p>
         <p>
           <InfoButton
-            onClick="document.getElementById('exp2').classList.toggle('hidden')"
+            onClick="document.getElementById('exp3').classList.toggle('hidden')"
           >
             <b>Presentation Night</b>
           </InfoButton>
           - 6pm @ Max and Cam's
         </p>
-        <p id="exp2" class="border-l-4 pl-3 mt-2 hidden">
+        <p id="exp3" class="border-l-4 pl-3 mt-2 hidden">
           Prepare a presentation, a slideshow, a speech, on anything. Anything
           at all, and we will all listen to it. Make it silly, or dead serious.
           Anything goes. You can also come to just watch the presentations.
@@ -189,8 +196,16 @@ import Default from "../layouts/Default.astro";
           <small>(You do not need to get me anything)</small>
         </p>
         <p>
-          <span class="text-red-300">*</span>
-          <b>All You Can Eat Ribs</b> - 4pm @ Montanas (1750 Ogilvie Rd)
+          <InfoButton
+            onClick="document.getElementById('exp4').classList.toggle('hidden')"
+          >
+            <span class="text-red-300">*</span>
+            <b>All You Can Eat Ribs</b>
+          </InfoButton>
+          - 4pm @ Montanas (1750 Ogilvie Rd)
+        </p>
+        <p id="exp4" class="border-l-4 pl-3 mt-2 hidden">
+          About 30$ per person for the ribs, they are pork ribs
         </p>
         <p>
           <b>Theas Birthday Party???</b> - Post-Ribs @ Thea's
