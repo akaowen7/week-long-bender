@@ -37,3 +37,8 @@ a:hover {
   background-repeat: no-repeat;
   background-position: center;
 }
+
+h3 {
+  color: #df2a2a;
+  text-decoration: underline;
+}
