@@ -1,0 +1,21 @@
+---
+import Fonts from "../components/Fonts.astro";
+
+import "../styles/globals.css";
+
+const { title } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?" />
+    <meta name="viewport" content="width=device-width" />
+    <Fonts />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

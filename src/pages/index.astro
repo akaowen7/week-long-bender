@@ -1,36 +1,11 @@
 ---
 import Fonts from "../components/Fonts.astro";
 import InfoButton from "../components/InfoButton.astro";
+
+import Default from "../layouts/Default.astro";
 ---
 
 <style>
-  body {
-    font-family: "Oswald", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    font-weight: 400;
-    color: white;
-  }
-
-  b {
-    font-weight: 500;
-  }
-
-  a {
-    color: cornflowerblue;
-    text-decoration: none;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-
-  .oswald {
-    font-family: "Oswald", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-  }
-
   .calender > * {
     @apply bg-gray-700 border-2 flex-1 p-3 m-1 rounded-lg;
 
@@ -126,16 +101,8 @@ import InfoButton from "../components/InfoButton.astro";
   var x = setInterval(coundownFunc, 100);
 </script>
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico?" />
-    <meta name="viewport" content="width=device-width" />
-    <Fonts />
-    <meta name="generator" content={Astro.generator} />
-    <title>WEEK LONG BENDER</title>
-  </head>
-  <body class="bg-stone-900 flex flex-col">
+<Default title="Bender">
+  <div class="bg-stone-900 flex flex-col">
     <div class="spray">
       <h1
         id="title"
@@ -293,5 +260,5 @@ import InfoButton from "../components/InfoButton.astro";
         your 20's.
       </p>
     </div>
-  </body>
-</html>
+  </div>
+</Default>
