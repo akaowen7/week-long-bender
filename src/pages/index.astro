@@ -46,8 +46,9 @@ import Default from "../layouts/Default.astro";
     const seconds = Math.floor((startDistance % (1000 * 60)) / 1000);
 
     const title = document.getElementById("title");
+    const subtitle = document.getElementById("subtitle");
 
-    if (!title) {
+    if (!title || !subtitle) {
       return;
     }
 
@@ -65,10 +66,12 @@ import Default from "../layouts/Default.astro";
       clearInterval(x);
       title.innerHTML =
         "CAMERON, MAX, AND THEA ARE DOING A WEEK LONG BENDER RIGHT NOW";
+      subtitle.classList.add("hidden");
     } else if (endDistance < 0) {
       clearInterval(x);
       title.innerHTML =
         "CAMERON, MAX, AND THEA HAVE COMPLETED A WEEK LONG BENDER";
+      subtitle.classList.add("hidden");
     }
 
     let currentCal = document.getElementById(date.toString());
@@ -88,8 +91,9 @@ import Default from "../layouts/Default.astro";
 
 <Default title="WEEK LONG BENDER">
   <div class="bg-stone-900 flex flex-col">
-    <div class="mx-auto">
-      <h1 class="text-3xl sm:text-4xl mt-5 text-center p-3 pl-5">
+    <div class="mt-5 mx-auto"></div>
+    <div id="subtitle" class="mx-auto">
+      <h1 class="text-3xl sm:text-4xl text-center p-3 pl-5">
         MAX, CAMERON, AND THEA ARE HAVING A WEEK-LONG BENDER IN
       </h1>
     </div>
