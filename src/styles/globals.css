@@ -24,3 +24,16 @@ a:hover {
   font-optical-sizing: auto;
   font-style: normal;
 }
+
+.paint {
+  background-image: url("/splatblu.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.spray {
+  background-image: url("/Splot.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}

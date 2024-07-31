@@ -1,5 +1,4 @@
 ---
-import Fonts from "../components/Fonts.astro";
 import InfoButton from "../components/InfoButton.astro";
 
 import Default from "../layouts/Default.astro";
@@ -24,19 +23,6 @@ import Default from "../layouts/Default.astro";
     @media (min-width: 768px) {
       @apply text-lg;
     }
-  }
-
-  .paint {
-    background-image: url("/splatblu.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-
-  .spray {
-    background-image: url("/Splot.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
   }
 </style>
 
@@ -101,7 +87,7 @@ import Default from "../layouts/Default.astro";
   var x = setInterval(coundownFunc, 100);
 </script>
 
-<Default title="Bender">
+<Default title="WEEK LONG BENDER">
   <div class="bg-stone-900 flex flex-col">
     <div class="spray">
       <h1
@@ -154,11 +140,6 @@ import Default from "../layouts/Default.astro";
         <p>
           <b>Deadpool & Wolverine</b> - 3:40pm @ Scotiabank Theatre
         </p>
-        <p>
-          <b>Pool (Billiards)</b> - 7pm @ <a href="https://www.maclarens.com/"
-            >Mclarens</a
-          >
-        </p>
       </div>
       <div class="shadow-slate-300 shadow-md" id="6">
         <h3>Tues - Aug 6th</h3>
@@ -199,7 +180,7 @@ import Default from "../layouts/Default.astro";
           <b>Beer in the Park/Flasks on the Eternal Flame</b> - 3pm @ TBD
         </p>
         <p>
-          <b>Pub Crawl</b> - 6pm (map to come)
+          <b>Pub Crawl</b> - 6pm @ <a href="/map">This Route</a>
         </p>
       </div>
       <div class="shadow-slate-300 shadow-md" id="9">
