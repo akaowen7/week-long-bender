@@ -1,0 +1,14 @@
+---
+interface InfoButtonProps {
+  onClick: string;
+}
+const { onClick } = Astro.props;
+---
+
+<button
+  class="bg-gray-600 text-white p-1 rounded-lg shadow-md"
+  onclick={onClick}
+>
+  <slot />
+  <i class="fa-regular fa-circle-question"></i>
+</button>

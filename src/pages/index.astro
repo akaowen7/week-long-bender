@@ -1,5 +1,6 @@
 ---
 import Fonts from "../components/Fonts.astro";
+import InfoButton from "../components/InfoButton.astro";
 ---
 
 <style>
@@ -158,11 +159,22 @@ import Fonts from "../components/Fonts.astro";
             >PineView</a
           >
         </p>
+        <p>
+          <InfoButton
+            onClick="document.getElementById('exp1').classList.toggle('hidden')"
+          >
+            <b>Board Game Night w/ Chess Boxing</b></InfoButton
+          > - 7pm @ Max and Cam's
+        </p>
+        <p id="exp1" class="border-l-4 pl-3 mt-2 hidden">
+          Bring a board game, or just come to play. Partacipation in chess
+          boxing is not mandatory, but we will call you a pussy if you dont
+        </p>
       </div>
       <div class="shadow-slate-300 shadow-md" id="4">
         <h3>Sun - Aug 4th</h3>
         <p>
-          <b>(Drinking) Olympics</b> - 2pm @ Max and Cam's
+          <b>(Drinking) Olympics</b> - 3pm @ Max and Cam's
         </p>
         <p>
           <b>Gay Shots</b> - 9pm @ <a href="https://thelookoutbar.com/"
@@ -175,6 +187,11 @@ import Fonts from "../components/Fonts.astro";
         <p>
           <b>Deadpool & Wolverine</b> - 3:40pm @ Scotiabank Theatre
         </p>
+        <p>
+          <b>Pool (Billiards)</b> - 7pm @ <a href="https://www.maclarens.com/"
+            >Mclarens</a
+          >
+        </p>
       </div>
       <div class="shadow-slate-300 shadow-md" id="6">
         <h3>Tues - Aug 6th</h3>
@@ -182,6 +199,19 @@ import Fonts from "../components/Fonts.astro";
           *<b>Go Karting</b> - 2pm @ <a href="https://www.topkarting.com/"
             >Top Karting</a
           >
+        </p>
+        <p>
+          <InfoButton
+            onClick="document.getElementById('exp2').classList.toggle('hidden')"
+          >
+            <b>Presentaiton Night</b>
+          </InfoButton>
+          - 6pm @ Max and Cam's
+        </p>
+        <p id="exp2" class="border-l-4 pl-3 mt-2 hidden">
+          Prepare a presentation, a slideshow, a speech, on anything, anything
+          at all, and we will all listen to it. Make it silly, or dead serious.
+          Anything goes. You can also come to just watch the presentations.
         </p>
       </div>
       <div class="shadow-slate-300 shadow-md" id="7">
@@ -199,7 +229,7 @@ import Fonts from "../components/Fonts.astro";
       <div class="shadow-slate-300 shadow-md" id="8">
         <h3>Thur - Aug 8th</h3>
         <p>
-          <b>Beer in the park</b> - 3pm @ TBD
+          <b>Beer in the Park/Flasks on the Eternal Flame</b> - 3pm @ TBD
         </p>
         <p>
           <b>Pub Crawl</b> - 6pm (map to come)
@@ -210,7 +240,10 @@ import Fonts from "../components/Fonts.astro";
         <p><b>Closing Ceremony and Awards</b> - 8:30pm @ Thea's</p>
       </div>
     </div>
-    <p class="pl-3">*Reservation requeired if intrested (contact one of us)</p>
+    <p class="pl-4">
+      <i class="fa-regular fa-circle-question"></i> Click for more info
+    </p>
+    <p class="pl-4">* Reservation requeired if intrested (contact one of us)</p>
 
     <div class="p-5 flex flex-col">
       <div class="paint w-60 mx-auto">
@@ -237,6 +270,11 @@ import Fonts from "../components/Fonts.astro";
       <div class="paint w-60 mx-auto">
         <h1 class="text-4xl mb-2 text-center p-3 pl-5 underline">FAQ</h1>
       </div>
+      <h2 class="text-2xl"><b>Whats Should I Attend?</b></h2>
+      <p class="text-xl mb-5">
+        Whatever you want! but if you need to keep it consice for yourself, the
+        most important events are the opening and closing ceremonys
+      </p>
       <h2 class="text-2xl"><b>Whats a bender?</b></h2>
       <p class="text-xl mb-5">
         We try not to fit ourselves inside a definition, but we will be
