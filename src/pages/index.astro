@@ -14,7 +14,7 @@ import Default from "../layouts/Default.astro";
   }
 
   .calender h3 {
-    @apply text-2xl text-center;
+    @apply text-2xl text-center underline text-red-300;
   }
 
   .calender p {
@@ -101,7 +101,7 @@ import Default from "../layouts/Default.astro";
         MAX, CAMERON, AND THEA WILL TAKE PART IN A WEEK LONG BENDER
       </h1>
     </div>
-    <div class="paint w-80 mx-auto">
+    <div class="paint w-min-72 mx-auto">
       <h1 class="text-4xl mb-2 text-center p-3 pl-5 underline">
         THE (BATTLE)PLAN
       </h1>
@@ -114,7 +114,7 @@ import Default from "../layouts/Default.astro";
       <div class="shadow-slate-300 shadow-md" id="3">
         <h3>Saturday - Aug 3rd</h3>
         <p>
-          *<b>Late-Brunch Golfing</b> - 4pm @ <a
+          <span class="text-red-300">*</span><b>Late-Brunch Golfing</b> - 4pm @ <a
             href="https://www.pineview.com/en">PineView</a
           >
         </p>
@@ -125,19 +125,18 @@ import Default from "../layouts/Default.astro";
             <b>Board Game Night w/ Chess Boxing</b></InfoButton
           > - 7pm @ Max and Cam's
         </p>
-        <p id="exp1" class="border-l-4 pl-3 mt-2 hidden">
-          Bring a board game, or just come to play. Participation in chess
-          boxing is not mandatory, but we will call you a pussy if you don't.
-
-          <br /><br />
-
-          <small>
+        <div id="exp1" class="border-l-4 pl-3 mt-2">
+          <p class="mb-2">
+            Bring a board game, or just come to play. Participation in chess
+            boxing is not mandatory, but we will call you a pussy if you don't.
+          </p>
+          <small class="text-sm">
             Max, Cameron, and Thea are not responsible for the injuries,
             concussions, dislocations, discombobulations, sprains, ligiment
             tears, jammed fingers, and wounded prides that will occur during the
-            chess boxing. Pussy.</small
-          >
-        </p>
+            chess boxing. Pussy.
+          </small>
+        </div>
       </div>
       <div class="shadow-slate-300 shadow-md" id="4">
         <h3>Sunday - Aug 4th</h3>
@@ -159,7 +158,7 @@ import Default from "../layouts/Default.astro";
       <div class="shadow-slate-300 shadow-md" id="6">
         <h3>Tuesday - Aug 6th</h3>
         <p>
-          * <s>Drunk Driving</s>
+          <span class="text-red-300">*</span><s>Drunk Driving</s>
           <b> Go Karting</b> - 2pm @ <a href="https://www.topkarting.com/"
             >Top Karting</a
           >
@@ -181,12 +180,13 @@ import Default from "../layouts/Default.astro";
       </div>
       <div class="shadow-slate-300 shadow-md" id="7">
         <h3>Wednesday - Aug 7th</h3>
-        <h3 style="color: white">(Thea's birthday!!!)</h3>
+        <h4 class="text-white text-xl text-center">(Thea's birthday!!!)</h4>
         <p class="text-center mt-[-.5rem]">
           <small>(You do not need to get me anything)</small>
         </p>
         <p>
-          *<b>All You Can Eat Ribs</b> - 4pm @ Montanas (1750 Ogilvie Rd)
+          <span class="text-red-300">*</span>
+          <b>All You Can Eat Ribs</b> - 4pm @ Montanas (1750 Ogilvie Rd)
         </p>
         <p>
           <b>Theas Birthday Party???</b> - Post-Ribs @ Thea's
@@ -269,7 +269,8 @@ import Default from "../layouts/Default.astro";
       </p>
       <h2 class="text-2xl">
         <b
-          >- Hey, Aren't You That Guy That Stole My Wallet At the Bar Last Ni-</b>
+          >- Hey, Aren't You That Guy That Stole My Wallet At the Bar Last Ni-</b
+        >
       </h2>
       <p class="text-xl">
         Uhhhhh, I gotta go water my goldfish. See you at the ceremonies!1!!
