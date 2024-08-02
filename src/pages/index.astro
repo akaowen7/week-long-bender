@@ -2,6 +2,21 @@
 import InfoButton from "../components/InfoButton.astro";
 
 import Default from "../layouts/Default.astro";
+
+const score = [
+  {
+    name: "Max",
+    score: 0,
+  },
+  {
+    name: "Cameron",
+    score: 0,
+  },
+  {
+    name: "Thea",
+    score: 0,
+  },
+];
 ---
 
 <style>
@@ -105,6 +120,26 @@ import Default from "../layouts/Default.astro";
         MAX, CAMERON, AND THEA WILL TAKE PART IN A WEEK LONG BENDER
       </h1>
     </div>
+
+    <div
+      class="hidden flex flex-col justify-center m-3 bg-stone-800 p-4 rounded-lg border-2 shadow-slate-300 shadow-md"
+    >
+      <div class="paint w-min-72 mx-auto bg-center">
+        <h1 class="text-4xl mb-2 text-center p-3 pl-5 underline">
+          THE SCORE (DRINKS)
+        </h1>
+      </div>
+      {
+        score.map((person) => (
+          <div class="flex flex-row justify-between w-40 mx-auto">
+            <h1 class="text-3xl">{person.name}:</h1>
+            <h1 class="text-3xl">{person.score}</h1>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Calender -->
     <div class="paint w-min-72 mx-auto">
       <h1 class="text-4xl mb-2 text-center p-3 pl-5 underline">
         THE (BATTLE)PLAN
@@ -235,6 +270,7 @@ import Default from "../layouts/Default.astro";
       * : Reservation required (Please contact one of us)
     </p>
 
+    <!-- Other Info -->
     <div class="p-5 flex flex-col">
       <div class="paint w-60 mx-auto">
         <h1 class="text-4xl mb-2 text-center p-3 pl-5 underline">WHAT?!?!?</h1>
