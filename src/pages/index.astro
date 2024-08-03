@@ -62,8 +62,9 @@ const score = [
 
     const title = document.getElementById("title");
     const subtitle = document.getElementById("subtitle");
+    const score = document.getElementById("score");
 
-    if (!title || !subtitle) {
+    if (!title || !subtitle || !score) {
       return;
     }
 
@@ -81,6 +82,7 @@ const score = [
       clearInterval(x);
       title.innerHTML =
         "CAMERON, MAX, AND THEA ARE DOING A WEEK LONG BENDER RIGHT NOW";
+      score.classList.remove("hidden");
       subtitle.classList.add("hidden");
     } else if (endDistance < 0) {
       clearInterval(x);
@@ -122,7 +124,9 @@ const score = [
     </div>
 
     <div
-      class="hidden flex flex-col justify-center m-3 bg-stone-800 p-4 rounded-lg border-2 shadow-slate-300 shadow-md"
+      id="score"
+      class="hidden flex flex-col justify-center m-3 bg-stone-800 p-4
+      rounded-lg border-2 shadow-slate-300 shadow-md sm:w-96 sm:mx-auto"
     >
       <div class="paint w-min-72 mx-auto bg-center">
         <h1 class="text-4xl mb-2 text-center p-3 pl-5 underline">
