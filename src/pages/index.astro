@@ -6,15 +6,15 @@ import Default from "../layouts/Default.astro";
 const score = [
   {
     name: "Max",
-    score: 46,
+    score: 62,
   },
   {
     name: "Cameron",
-    score: 59,
+    score: 77,
   },
   {
     name: "Thea",
-    score: 40,
+    score: 50,
   },
 ].sort((a, b) => b.score - a.score);
 ---
@@ -51,14 +51,12 @@ const score = [
     const startDistance = benderStart - time;
     const endDistance = benderEnd - time;
 
-    const days = Math.floor(startDistance / (1000 * 60 * 60 * 24));
+    const days = Math.floor(endDistance / (1000 * 60 * 60 * 24));
     const hours = Math.floor(
-      (startDistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      (endDistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
     );
-    const minutes = Math.floor(
-      (startDistance % (1000 * 60 * 60)) / (1000 * 60)
-    );
-    const seconds = Math.floor((startDistance % (1000 * 60)) / 1000);
+    const minutes = Math.floor((endDistance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((endDistance % (1000 * 60)) / 1000);
 
     const title = document.getElementById("title");
     const subtitle = document.getElementById("subtitle");
@@ -78,13 +76,13 @@ const score = [
 
     // in ms, makes the countdown go from 1 to "bender has started",
     // skipping the 0 second mark
-    if (startDistance < 1000) {
-      clearInterval(x);
-      title.innerHTML =
-        "CAMERON, MAX, AND THEA ARE DOING A WEEK LONG BENDER RIGHT NOW";
-      score.classList.remove("hidden");
-      subtitle.classList.add("hidden");
-    } else if (endDistance < 0) {
+    // if (startDistance < 1000) {
+    //   clearInterval(x);
+    //   title.innerHTML =
+    //     "CAMERON, MAX, AND THEA ARE DOING A WEEK LONG BENDER RIGHT NOW";
+    //   subtitle.classList.add("hidden");
+    // } else
+    if (endDistance < 1000) {
       clearInterval(x);
       title.innerHTML =
         "CAMERON, MAX, AND THEA HAVE COMPLETED A WEEK LONG BENDER";
@@ -111,7 +109,7 @@ const score = [
     <div class="mt-5 mx-auto"></div>
     <div id="subtitle" class="mx-auto">
       <h1 class="text-3xl sm:text-4xl text-center p-3 pl-5">
-        MAX, CAMERON, AND THEA ARE HAVING A WEEK-LONG BENDER IN
+        MAX, CAMERON, AND THEA WILL COMPLETE A WEEK-LONG BENDER IN
       </h1>
     </div>
     <div class="spray">
@@ -119,13 +117,13 @@ const score = [
         id="title"
         class="text-4xl sm:text-6xl m-5 mt-0 sm:m-10 text-center font-meidum underline"
       >
-        MAX, CAMERON, AND THEA WILL TAKE PART IN A WEEK LONG BENDER
+        BENDER
       </h1>
     </div>
 
     <div
       id="score"
-      class="hidden flex flex-col justify-center m-3 bg-stone-800 p-4
+      class="flex flex-col justify-center m-3 bg-stone-800 p-4
       rounded-lg border-2 shadow-slate-300 shadow-md sm:w-96 sm:mx-auto"
     >
       <div class="paint w-min-72 mx-auto bg-center">
