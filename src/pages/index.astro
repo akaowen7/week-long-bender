@@ -41,83 +41,15 @@ const score = [
   }
 </style>
 
-<script>
-  const benderStart = new Date("Aug 2, 2024 22:00:00").getTime();
-  const benderEnd = new Date("Aug 9, 2024 21:59:59").getTime();
-
-  const coundownFunc = () => {
-    const time = new Date().getTime();
-    const date = new Date().getDate();
-    const startDistance = benderStart - time;
-    const endDistance = benderEnd - time;
-
-    const days = Math.floor(endDistance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor(
-      (endDistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    );
-    const minutes = Math.floor((endDistance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((endDistance % (1000 * 60)) / 1000);
-
-    const title = document.getElementById("title");
-    const subtitle = document.getElementById("subtitle");
-    const score = document.getElementById("score");
-
-    if (!title || !subtitle || !score) {
-      return;
-    }
-
-    // I am nothing if not someone who cares for formatting
-    title.innerHTML =
-      (days ? `${days} DAY${days > 1 ? "S" : ""}, ` : "") +
-      (hours ? `${hours} HOUR${hours > 1 ? "S" : ""}, ` : "") +
-      (minutes ? `${minutes} MINUTE${minutes > 1 ? "S" : ""}, ` : "") +
-      (minutes || hours || days ? "AND " : "") +
-      `${seconds} SECONDS`;
-
-    // in ms, makes the countdown go from 1 to "bender has started",
-    // skipping the 0 second mark
-    // if (startDistance < 1000) {
-    //   clearInterval(x);
-    //   title.innerHTML =
-    //     "CAMERON, MAX, AND THEA ARE DOING A WEEK LONG BENDER RIGHT NOW";
-    //   subtitle.classList.add("hidden");
-    // } else
-    if (endDistance < 1000) {
-      clearInterval(x);
-      title.innerHTML =
-        "CAMERON, MAX, AND THEA HAVE COMPLETED A WEEK LONG BENDER";
-      subtitle.classList.add("hidden");
-    }
-
-    let currentCal = document.getElementById(date.toString());
-
-    if (currentCal) {
-      currentCal.className = "border-red-700 shadow-red-600 shadow-xl";
-    }
-  };
-
-  coundownFunc();
-
-  // clam down, worse things happen on modren systems
-  // done like this to stop issues of the interval being offset
-  // from the actual time
-  var x = setInterval(coundownFunc, 100);
-</script>
-
 <Default title="WEEK LONG BENDER">
   <div class="bg-stone-900 flex flex-col">
     <div class="mt-5 mx-auto"></div>
-    <div id="subtitle" class="mx-auto">
-      <h1 class="text-3xl sm:text-4xl text-center p-3 pl-5">
-        MAX, CAMERON, AND THEA WILL COMPLETE A WEEK-LONG BENDER IN
-      </h1>
-    </div>
     <div class="spray">
       <h1
         id="title"
         class="text-4xl sm:text-6xl m-5 mt-0 sm:m-10 text-center font-meidum underline"
       >
-        BENDER
+        CAMERON, MAX, AND THEA HAVE COMPLETED A WEEK LONG BENDER
       </h1>
     </div>
 
@@ -128,7 +60,7 @@ const score = [
     >
       <div class="paint w-min-72 mx-auto bg-center">
         <h1 class="text-4xl mb-2 text-center p-3 pl-5 underline">
-          THE SCORE (DRINKS)
+          FINAL SCORE (DRINKS)
         </h1>
       </div>
       {
@@ -141,202 +73,61 @@ const score = [
       }
     </div>
 
-    <!-- Calender -->
-    <div class="paint w-min-72 mx-auto">
-      <h1 class="text-4xl mb-2 text-center p-3 pl-5 underline">
-        THE (BATTLE)PLAN
-      </h1>
+    <div class="p-5 flex flex-col sm:flex-row justify-center">
+      <button
+        class="p-4 m-2 rounded-lg border-2 shadow-slate-300 shadow-md text-xl mx-auto sm:mx-2
+        hover:bg-stone-700 hover:shadow-slate-200 hover:shadow-lg"
+        onclick="location.href='https://www.instagram.com/weeklongbender/'"
+      >
+        The Instagram
+      </button>
+      <button
+        class="p-4 m-2 rounded-lg border-2 shadow-slate-300 shadow-md text-xl mx-auto sm:mx-2
+        hover:bg-stone-700 hover:shadow-slate-200 hover:shadow-lg"
+        onclick="location.href='/oldindex'"
+      >
+        View what the site looked <br class="sm:hidden" /> like during the bender
+      </button>
     </div>
-    <div class="flex flex-col flex-wrap md:flex-row p-3 calender">
-      <div class="shadow-slate-300 shadow-md" id="2">
-        <h3>Friday - Aug 2nd</h3>
-        <p><b>Opening Ceremony</b> - 8:30pm @ Thea's</p>
-      </div>
-      <div class="shadow-slate-300 shadow-md" id="3">
-        <h3>Saturday - Aug 3rd</h3>
-        <p>
-          <span class="text-red-300">*</span><b>Late-Brunch Golfing</b> - 4pm @ <a
-            href="https://www.pineview.com/en">PineView</a
-          >
-        </p>
-        <p>
-          <InfoButton
-            onClick="document.getElementById('exp1').classList.toggle('hidden')"
-          >
-            <b>Board Game Night w/ Chess Boxing</b></InfoButton
-          > - 8:30pm @ Thea's
-        </p>
-        <div id="exp1" class="border-l-4 pl-3 mt-2 hidden">
-          <p class="mb-2">
-            Bring a board game, or just come to play. Participation in chess
-            boxing is not mandatory, but we will call you a pussy if you don't.
-          </p>
-          <small class="text-sm">
-            Max, Cameron, and Thea are not responsible for the injuries,
-            concussions, dislocations, discombobulations, sprains, ligiment
-            tears, jammed fingers, and wounded prides that will occur during the
-            chess boxing. Pussy.
-          </small>
-        </div>
-      </div>
-      <div class="shadow-slate-300 shadow-md" id="4">
-        <h3>Sunday - Aug 4th</h3>
-        <p>
-          <b>(Drinking) Olympics</b> - 4pm @ Max and Cam's
-        </p>
-        <p>
-          <b>Gay Shots</b> - 8pm @ <a href="https://thelookoutbar.com/"
-            >The Lookout</a
-          >
-        </p>
-      </div>
-      <div class="shadow-slate-300 shadow-md" id="5">
-        <h3>Monday - Aug 5th</h3>
-        <p>
-          <b><span class="text-red-300">*</span>Deadpool & Wolverine</b> - 3:40pm
-          @ Scotiabank Theatre
-        </p>
-        <p>
-          <b>Rooftop Shenanigans</b> - 6:30-9pm @ Ozzie and Isaac's
-        </p>
-      </div>
-      <div class="shadow-slate-300 shadow-md" id="6">
-        <h3>Tuesday - Aug 6th</h3>
-        <p>
-          <InfoButton
-            onClick="document.getElementById('exp2').classList.toggle('hidden')"
-          >
-            <span class="text-red-300">*</span><s>Drunk Driving</s>
-            <b> Go Karting</b>
-          </InfoButton>
-          - 2pm @ <a href="https://www.topkarting.com/">Top Karting</a>
-        </p>
-        <p id="exp2" class="border-l-4 pl-3 mt-2 mb-2 hidden">
-          Go karting will be $67 (incl. tax) per person, unless we get at least
-          8 people, then it goes down to $59 (incl. tax) per person.
-        </p>
-        <p>
-          <InfoButton
-            onClick="document.getElementById('exp3').classList.toggle('hidden')"
-          >
-            <b>Presentation Night</b>
-          </InfoButton>
-          - 8:30pm @ Max and Cam's
-        </p>
-        <p id="exp3" class="border-l-4 pl-3 mt-2 hidden">
-          Prepare a presentation, a slideshow, a speech, on anything. Anything
-          at all, and we will all listen to it. Make it silly, or dead serious.
-          Anything goes. You can also come to just watch the presentations.
-          Pussy.
-        </p>
-      </div>
-      <div class="shadow-slate-300 shadow-md" id="7">
-        <h3>Wednesday - Aug 7th</h3>
-        <h4 class="text-white text-xl text-center">(Thea's birthday!!!)</h4>
-        <p class="text-center mt-[-.5rem]">
-          <small>(You do not need to get me anything)</small>
-        </p>
-        <p>
-          <InfoButton
-            onClick="document.getElementById('exp4').classList.toggle('hidden')"
-          >
-            <span class="text-red-300">*</span>
-            <b>All You Can Eat Ribs</b>
-          </InfoButton>
-          - 4pm @ Montanas (1750 Ogilvie Rd)
-        </p>
-        <p id="exp4" class="border-l-4 pl-3 mt-2 hidden">
-          About $30 per person for the ribs, they are pork ribs
-        </p>
-        <p>
-          <b>Theas Birthday Party???</b> - Post-Ribs @ Thea's
-        </p>
-      </div>
-      <div class="shadow-slate-300 shadow-md" id="8">
-        <h3>Thursday - Aug 8th</h3>
-        <p>
-          <b>Beers in the Park</b> - 5pm @ (Sandy Hill Community Centre)
-        </p>
-        <p>
-          <b>The Bar Crawl / Flasks at the Eternal Flame</b> - 8:30pm @ <a
-            href="/map">This Route</a
-          >
-        </p>
-      </div>
-      <div class="shadow-slate-300 shadow-md" id="9">
-        <h3>Friday - Aug 9th</h3>
-        <p><b>Closing Ceremony and Awards</b> - 8:30pm @ Thea's</p>
-      </div>
-    </div>
-    <p class="pl-4 text-red-300">
-      <i class="fa-regular fa-circle-question"></i> : Click for more info
-    </p>
-    <p class="pl-4 text-red-300">
-      * : Reservation required (Please contact one of us)
-    </p>
 
-    <!-- Other Info -->
     <div class="p-5 flex flex-col">
       <div class="paint w-60 mx-auto">
-        <h1 class="text-4xl mb-2 text-center p-3 pl-5 underline">WHAT?!?!?</h1>
+        <h1 class="text-4xl mb-2 text-center p-3 pl-5 underline">
+          A WORD ON THE BENDER
+        </h1>
       </div>
       <p class="text-xl mb-2">
-        Max, Cameron and Thea are attempting to do a week long bender from Aug
-        2nd, 10:00pm to Aug 9th, 9:59pm. You are hereby invited to join us in
-        our glorious crucade, whether it be for an evening, an activity, or the <u
-          >whole fucking week.</u
-        > Your glory awaits.
-      </p>
-      <p class="text-xl mb-2">
-        The plans are set currently, however, they of course could change, but
-        this is a pretty good idea of what will be happening. If there is
-        something you still want to suggest you can let us know. If you want to
-        suggest award ideas that would also be cool (they better be good, or
-        you'll be getting the award of "Least Creative Bozo" and banned from all
-        future benders).
-      </p>
-      <p class="text-xl mb-2">
-        Most events (those without an *) are open for anyone to attend without a
-        reservation, but if you are going to show up to some of the stuff please
-        do let us know so we have an ideas of attendies numbers. Plus 1's, and
-        2's are in the spirit of the bender but, please no plus 7's (unless they
-        bring beer).
+        From Aug 2nd, 10:00pm to Aug 9th, 9:59pm Max, Cameron and Thea did a
+        week long bender. This consisted of them drinking every day and hanging
+        out with friends, but mostly drinking every day. Over the course of it
+        they learnt so much: Who is best at golf (Cameron), what equestrian
+        dancing is, how the Boeing 747 dreamliner works, how many beers is too
+        many beers (18), and why we don't do all you can eat ribs regularly. It
+        was insane, and tons of fun, hanging out with everyone was the best. But
+        now the bender is over, and what remains is the memories, this website,
+        and two Montana's rib bone buckets. It's time we get back to our lives,
+        but we all look forward to the future where maybe, just maybe, we can do
+        this again.
       </p>
 
       <div class="paint w-60 mx-auto">
-        <h1 class="text-4xl mb-2 text-center p-3 pl-5 underline">FAQ</h1>
+        <h1 class="text-4xl mb-2 mt-2 text-center p-3 pl-5 underline">
+          THE AWARDS
+        </h1>
       </div>
-      <h2 class="text-2xl"><b>- What Events Should I Attend?</b></h2>
-      <p class="text-xl mb-5">
-        Whatever you want! But if you need to keep it consice for yourself, the
-        most important events are the opening and closing ceremonies.
-      </p>
-      <h2 class="text-2xl"><b>- What's a Bender?</b></h2>
-      <p class="text-xl mb-5">
-        Like many of our young kinsfolk today, we try not to fit ourselves
-        inside a definition, but we will be drinking. Every day. Of the week.
-        Now, a follow up question might be...
-      </p>
-      <h2 class="text-2xl"><b>- ...Are You Alcholics?</b></h2>
-      <p class="text-xl mb-5">Inspite of our best efforts, no.</p>
-      <h2 class="text-2xl"><b>- Why Are You Doing This To Yourselves?</b></h2>
-      <p class="text-xl mb-5">
-        To see if we can. To challenge ourselves. Life is short. We're all gonna
-        die. Who else is going to do it? Nobody that cared enough to register a
-        website, that's for sure.
-      </p>
-      <h2 class="text-2xl"><b>- Aren't You Worried About Your Health?</b></h2>
-      <p class="text-xl mb-5">
-        God gave us livers for a reason. What else are you supposed to do in
-        your 20's, buy a house?
-      </p>
-      <h2 class="text-2xl">
-        <b
-          >- Hey, Aren't You That Guy That Stole My Wallet At the Bar Last Ni-</b
-        >
-      </h2>
-      <p class="text-xl">
-        Uhhhhh, I gotta go water my goldfish. See you at the ceremonies!1!!
+      <p class="text-2xl mb-5 text-center">
+        Most drinks in a day - Cameron<br />
+        Most birthdays in the week - Thea<br />
+        Tallest award - Max<br />
+        Most attended - Sabine<br />
+        Most drank along - Issac<br />
+        Sprit of the bender - Charlie<br />
+        Eppiest Soilder - Tim<br />
+        Best Improvised presentation - Xander<br />
+        Board Game tutorship award - Carter<br />
+        Best Karaoke - Emily<br />
+        Sickest boy - Daniel<br />
+        Most missed events - Justin Trudeau (accepted by Jordan)<br />
       </p>
     </div>
   </div>
